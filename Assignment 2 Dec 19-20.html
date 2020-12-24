@@ -1,0 +1,314 @@
+<html>
+<body>
+<script>
+
+//All codes are edited and executed in Guvi ide, aggregated in one file here
+//As needed, please modify i/o statements to respective editor/browser when you execute  
+//Execute each block separately if needed
+
+
+//Print odd numbers in an array
+ 
+//anonymous function
+
+var a = function(arr = []){
+    var b = []
+ for(i=0;i<arr.length;i++)
+ {
+    if(arr[i]%2!==0)
+    {
+        console.log(arr[i])
+    }
+ }
+}
+a([1,2,3,4,5])
+ 
+
+//iife 
+
+(function(arr = []){
+    
+ for(i=0;i<arr.length;i++)
+ {
+    if(arr[i]%2!==0)
+    {
+        console.log(arr[i])
+    }
+ }
+ 
+}) ([1,2,3,4,5,6,7])
+
+// Convert all the strings to title caps in a string array
+
+//from guvi ide, ignore the readline if executing elsewhere
+
+const readline = require("readline"); const inp = readline.createInterface({input: process.stdin }); const userInput = []; inp.on("line", (data) => {userInput.push(data); }); inp.on("close", () => {
+    
+    
+var a = userInput[0].split(' ')
+
+
+//anonymous function
+
+var testarr = function(arr = []){
+    
+   var hold = []
+for(i=0;i<arr.length;i++){
+   hold.push(arr[i].charAt(0).toUpperCase())
+   for(j=1; j<arr[i].length; j++)
+    {
+   hold.push(arr[i].charAt(j))
+   }
+    hold.push(' ')
+}
+hold.pop()
+return hold
+}
+var b = testarr(a)
+console.log(b.join(''))
+
+//iife
+
+(function(arr1 = []){
+    
+    var hold = []
+for(i=0;i<arr1.length;i++){
+    hold.push(arr1[i].charAt(0).toUpperCase())
+    for(j=1; j<arr1[i].length; j++)
+    {
+    hold.push(arr1[i].charAt(j))
+    }
+    hold.push(' ')
+}
+hold.pop()
+console.log(hold.join(''))
+})(c = userInput[0].split(' '))
+
+});
+
+//Sum of all numbers in an array
+
+//annonymous function
+
+var a = function(arr =[]) {
+    
+    return arr.reduce((acc,i) => { 
+        return acc = acc + i
+        
+    },0)
+}
+
+
+console.log(a([1,2,3,4,3,5]))
+
+//iife
+
+(function(arr =[]) {
+    
+    console.log(arr.reduce((acc,i) => { 
+        return acc = acc + i
+        
+    },0))
+})
+([1,2,3,4,3,5])
+
+
+
+//Return all the prime numbers in an array
+
+//anonymous function 
+
+var prime = function(n){
+    if(n == 1)
+    return 'neither prime nor composite'
+    else
+    {
+     for(i=2;i<n-1;i++)
+     {
+         if(n%i==0)
+         return 'not a prime'
+         else
+         return 'prime'
+     }
+    }
+}
+
+console.log(prime(7))
+
+//iife
+
+(function(n){
+    if(n == 1)
+    console.log('neither prime nor composite')
+    else
+    {
+     for(i=2;i<n-1;i++)
+     {
+         if(n%i==0){
+         console.log('not a prime')
+             break
+         }
+         else{
+         console.log('prime')
+         break}
+     }
+    }
+})(8)
+
+//Return all the palindromes in an array
+
+//anonymous function
+
+var palindrome = function(arr = []){
+    var hold = []
+    for(i=0;i<arr.length;i++)
+    {
+        var l = arr[i].length
+        for(j=0;j<parseInt(l/2);j++)
+        {
+            if(arr[i][j]!==arr[i][l-1-j])
+            {
+            hold.push('not a palindrome')       
+             break;
+            }
+            else if(j==(parseInt(l/2)-1))
+            {
+             
+            hold.push('palindrome')
+            }
+        
+        }
+    }
+    
+
+    console.log(hold)
+}
+
+palindrome(['abba','baabb','12321'])
+
+//iife
+
+(function(arr = []){
+    var hold = []
+    for(i=0;i<arr.length;i++)
+    {
+        var l = arr[i].length
+        for(j=0;j<parseInt(l/2);j++)
+        {
+            if(arr[i][j]!==arr[i][l-1-j])
+            {
+            hold.push('not a palindrome')       
+             break;
+            }
+            else if(j==(parseInt(l/2)-1))
+            {
+             
+            hold.push('palindrome')
+            }
+        
+        }
+    }
+    
+
+    console.log(hold)
+    
+}) (['aaba','babb','12321'])
+
+
+// Return median of two sorted arrays of same size
+
+//anounymous function
+
+var median = function(arr1,arr2 = [])
+{
+    newarr = arr1.concat(arr2)
+    var b = newarr.sort()
+  if(b.length%2==0)
+  {
+      return (b[(b.length/2)-1] + b[b.length/2])
+  }
+  else
+  {
+      return b[parseInt(b.length/2)]
+  }
+}
+
+console.log(median([1,2],[4,5,6]))
+
+//iife
+
+(function(arr1,arr2 = [])
+{
+    newarr = arr1.concat(arr2)
+    var b = newarr.sort()
+  if(b.length%2==0)
+  {
+      console.log(b[(b.length/2)-1] + b[b.length/2])
+  }
+  else
+  {
+      console.log(b[parseInt(b.length/2)])
+  }
+}) ([1,2,3],[4,5,6])
+
+
+//Remove duplicates from an array
+
+//anonymous function
+
+var duplicate = function(a=[])
+{
+map = {}
+for(i=0;i<a.length;i++)
+{
+map[a[i]] = (map[a[i]]||0) + 1
+}
+var a = Object.keys(map)
+return a.join(' ')
+} 
+
+console.log(duplicate([0,1,1,3,1,4,2,5,5,5,5,2]))
+
+//iife
+
+(function(a=[])
+{
+map = {}
+for(i=0;i<a.length;i++)
+{
+map[a[i]] = (map[a[i]]||0) + 1
+}
+var a = Object.keys(map)
+console.log(a.join(' '))
+}) ([0,1,1,3,1,4,2,5,5,5,5,2])
+
+
+// Rotate an array by k times and return the rotated array
+
+//anonymous function
+
+
+var a = function(arr=[],k)
+{
+    for(i=0;i<k;i++)
+    arr.unshift(arr.pop())
+
+    return arr
+}
+
+console.log(a([1,2,3,4,5],4))
+
+//iife
+
+(function(arr=[],k)
+{
+    for(i=0;i<k;i++)
+    arr.unshift(arr.pop())
+
+    console.log(arr)
+}
+) ([1,2,3,4,5],3)
+
+</script>
+</body>
+</html>
