@@ -27,7 +27,7 @@ letsCheckWeatherCoord(lat,long)
 function letsCheckWeatherCity(capitalcityname)
 {   var request = new XMLHttpRequest()
     //opening weather data by capital city name
-    request.open('GET',"https://api.openweathermap.org/data/2.5/weather?q="+ capitalcityname+"&appid=f00d082228db9016bff947081a913fe0", true)
+    request.open('GET',"https://api.openweathermap.org/data/2.5/weather?q="+ capitalcityname+"&appid=<open-weather-token>", true)
     request.send()
     request.onload=function(){   
     var weatherCity = JSON.parse(this.response)
@@ -41,7 +41,7 @@ function letsCheckWeatherCoord(lat,long)
 {
     var request = new XMLHttpRequest()
     //opening weather data by capital city coordinates - latitude & longitude
-    request.open('GET',"https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon="+ long + "&appid=f00d082228db9016bff947081a913fe0", true)
+    request.open('GET',"https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon="+ long + "&appid=<open-weather-token>", true)
     request.send()
     request.onload=function(){   
     var weatherLatLong = JSON.parse(this.response)
